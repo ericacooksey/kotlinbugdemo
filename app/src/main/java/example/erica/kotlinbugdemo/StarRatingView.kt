@@ -31,9 +31,9 @@ class StarRatingView : LinearLayout {
         // Set up the view
         val dimen = context.resources.getDimensionPixelSize(R.dimen.star_rating_dimen)
         val margin = context.resources.getDimensionPixelSize(R.dimen.star_rating_margin)
-        var i: Int = 0
         // Iterate over the number of stars, adding each one to the layout
-        while (i < numStars) {
+        // Use proper for loop instead of while
+        for (i in 0..numStars) {
             val starImageView: ImageView = ImageView(context, null, R.style.StarRating_Star)
             // Use filled stars if rating is initialized
             if (i < rating) {
@@ -42,9 +42,9 @@ class StarRatingView : LinearLayout {
                 starImageView.background = imgStarOpen
             }
             // Set a click listener so that tapping the star sets it as the rating
-            val rating = i + 1
             starImageView.setOnClickListener {
-                setRating(rating) // index + 1 is the rating
+                // Now we don't need temporary variable, because i now immutable
+                setRating(i + 1) // index + 1 is the rating
             }
             // Set the margin in the layout params
             var layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(dimen, dimen)
@@ -53,7 +53,6 @@ class StarRatingView : LinearLayout {
             }
             // Add the star as a child view
             addView(starImageView, layoutParams)
-            i++
         }
     }
 
