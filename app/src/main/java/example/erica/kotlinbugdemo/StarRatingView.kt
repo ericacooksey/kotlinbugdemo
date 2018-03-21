@@ -42,8 +42,9 @@ class StarRatingView : LinearLayout {
                 starImageView.background = imgStarOpen
             }
             // Set a click listener so that tapping the star sets it as the rating
+            val rating = i + 1
             starImageView.setOnClickListener {
-                setRating(i + 1) // index + 1 is the rating
+                setRating(rating) // index + 1 is the rating
             }
             // Set the margin in the layout params
             var layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(dimen, dimen)
