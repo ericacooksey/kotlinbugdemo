@@ -33,7 +33,7 @@ class StarRatingView : LinearLayout {
         val margin = context.resources.getDimensionPixelSize(R.dimen.star_rating_margin)
         // Iterate over the number of stars, adding each one to the layout
         // Use proper for loop instead of while
-        for (i in 0..numStars) {
+        for (i in 0 until numStars) {
             val starImageView: ImageView = ImageView(context, null, R.style.StarRating_Star)
             // Use filled stars if rating is initialized
             if (i < rating) {
